@@ -20,7 +20,7 @@ export const CTASection = () => {
               <button className="flex min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-primary text-text-main text-lg font-bold shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1">
                 <span className="truncate">Get Started for Free</span>
               </button>
-                <button className="flex min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-white border border-gray-200 text-text-main text-lg font-bold hover:bg-gray-50 transition-colors">
+              <button className="flex min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-white border border-gray-200 text-text-main text-lg font-bold hover:bg-gray-50 transition-colors">
                 <span className="truncate">Contact Sales</span>
               </button>
             </div>

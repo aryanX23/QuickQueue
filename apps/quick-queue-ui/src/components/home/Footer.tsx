@@ -41,7 +41,7 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-          <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-500">
+        <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-500">
           © 2024 QuickQueue. All rights reserved.
         </div>
       </div>
