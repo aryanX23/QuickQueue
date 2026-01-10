@@ -12,8 +12,8 @@ export const CTASection = () => {
                 Ready to skip the wait?
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-lg font-normal leading-normal max-w-2xl mx-auto">
-                Join thousands of doctors and patients using QuickQueue to make
-                healthcare simpler, faster, and friendlier.
+                Join thousands of doctors and patients using QuickQueue to make healthcare simpler,
+                faster, and friendlier.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
@@ -30,4 +30,3 @@ export const CTASection = () => {
     </section>
   );
 };
-

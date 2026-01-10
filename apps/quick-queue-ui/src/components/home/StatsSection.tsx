@@ -6,9 +6,7 @@ export const StatsSection = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="flex flex-col gap-2 rounded-xl p-6 border border-gray-100 dark:border-slate-800 bg-background-light dark:bg-slate-800/50 shadow-sm hover:border-primary/30 transition-colors">
               <div className="flex items-center gap-3 mb-2">
-                <span className="material-symbols-outlined text-primary text-3xl">
-                  timer
-                </span>
+                <span className="material-symbols-outlined text-primary text-3xl">timer</span>
                 <p className="text-text-main dark:text-white text-base font-medium leading-normal">
                   Avg Wait Time
                 </p>
@@ -17,9 +15,7 @@ export const StatsSection = () => {
                 12 mins
               </p>
               <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium leading-normal flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm">
-                  trending_down
-                </span>
+                <span className="material-symbols-outlined text-sm">trending_down</span>
                 15% vs industry avg
               </p>
             </div>
@@ -36,9 +32,7 @@ export const StatsSection = () => {
                 500+
               </p>
               <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium leading-normal flex items-center gap-1">
-                <span className="material-symbols-outlined text-sm">
-                  trending_up
-                </span>
+                <span className="material-symbols-outlined text-sm">trending_up</span>
                 Growing daily
               </p>
             </div>
@@ -65,4 +59,3 @@ export const StatsSection = () => {
     </section>
   );
 };
-

@@ -1,4 +1,4 @@
-import { Logo } from './Logo';
+import { Logo } from '@/components/home/Logo';
 
 export const Navbar = () => {
   return (
@@ -48,4 +48,3 @@ export const Navbar = () => {
     </header>
   );
 };
-

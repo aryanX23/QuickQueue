@@ -11,9 +11,8 @@ export const HeroSection = () => {
                   <span className="text-primary">Without the Wait.</span>
                 </h1>
                 <h2 className="text-gray-600 dark:text-gray-300 text-base font-normal leading-relaxed @[480px]:text-lg max-w-xl">
-                  The real-time clinic management system connecting doctors and
-                  patients seamlessly. Join the queue from home and arrive just in
-                  time.
+                  The real-time clinic management system connecting doctors and patients seamlessly.
+                  Join the queue from home and arrive just in time.
                 </h2>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -85,4 +84,3 @@ export const HeroSection = () => {
     </section>
   );
 };
-
