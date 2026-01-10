@@ -1,0 +1,44 @@
+name: Check Source Branch for Merge
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - production # Replace with your target branch name
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify source branch
+        run: |
+          # Define the allowed source branch(es) or patterns
+          ALLOWED_BRANCHES=("master")
+
+          CURRENT_BRANCH="${GITHUB_HEAD_REF}"
+          IS_ALLOWED=false
+
+          for pattern in "${ALLOWED_BRANCHES[@]}"; do
+            if [[ "$CURRENT_BRANCH" == "$pattern" ]]; then
+              IS_ALLOWED=true
+              break
+            elif [[ "$pattern" == *"*"* ]]; then
+              # Handle wildcard patterns
+              shopt -s extglob
+              if [[ "$CURRENT_BRANCH" == $pattern ]]; then
+                IS_ALLOWED=true
+                break
+              fi
+              shopt -u extglob
+            fi
+          done
+
+          if [ "$IS_ALLOWED" = false ]; then
+            echo "Error: Pull request must come from an allowed branch ('master')."
+            exit 1
+          else
+            echo "Success: Source branch is allowed for merging into the target branch."
+          fi
