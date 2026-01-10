@@ -2,16 +2,16 @@ import { Logo } from '@/components/home/Logo';
 
 export const Footer = () => {
   return (
-    <footer className="bg-background-light dark:bg-background-dark border-t border-[#e7f3f3] dark:border-slate-800 py-12 px-4 sm:px-10">
+    <footer className="bg-background-light border-t border-[#e7f3f3] py-12 px-4 sm:px-10">
       <div className="layout-container flex flex-col max-w-[1280px] mx-auto gap-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
             <div className="size-6 text-primary">
               <Logo />
             </div>
-            <span className="text-lg font-bold text-text-main dark:text-white">QuickQueue</span>
+            <span className="text-lg font-bold text-text-main">QuickQueue</span>
           </div>
-          <div className="flex gap-8 text-sm font-medium text-gray-500 dark:text-gray-400">
+          <div className="flex gap-8 text-sm font-medium text-gray-500">
             <a className="hover:text-primary transition-colors" href="#">
               Privacy Policy
             </a>
@@ -23,13 +23,13 @@ export const Footer = () => {
             </a>
           </div>
           <div className="flex gap-4">
-            <a className="text-gray-400 hover:text-primary transition-colors" href="#">
+            <a className="text-gray-500 hover:text-primary transition-colors" href="#">
               <span className="sr-only">Twitter</span>
               <svg aria-hidden="true" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
               </svg>
             </a>
-            <a className="text-gray-400 hover:text-primary transition-colors" href="#">
+            <a className="text-gray-500 hover:text-primary transition-colors" href="#">
               <span className="sr-only">LinkedIn</span>
               <svg aria-hidden="true" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -41,7 +41,7 @@ export const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="border-t border-gray-100 dark:border-slate-800 pt-8 text-center text-sm text-gray-400">
+          <div className="border-t border-gray-100 pt-8 text-center text-sm text-gray-500">
           © 2024 QuickQueue. All rights reserved.
         </div>
       </div>

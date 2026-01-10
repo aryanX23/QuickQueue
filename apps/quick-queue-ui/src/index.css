@@ -23,8 +23,8 @@
 
 @theme {
   --color-primary: #13ecec;
-  --color-background-light: #f6f8f8;
-  --color-background-dark: #102222;
+  --color-background-light: #f7f7f7;
+  --color-background-dark: #f7f7f7;
   --color-text-main: #0d1b1b;
   
   --font-display: Inter, sans-serif;
