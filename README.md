@@ -102,12 +102,12 @@ yarn build
 
 These commands can be run from the root:
 
-| Command            | Description                                     |
-| ------------------ | ----------------------------------------------- |
-| `yarn dev`         | Starts all apps in development mode             |
-| `yarn build`       | Builds all apps and packages                    |
-| `yarn lint`        | Runs ESLint across all workspaces               |
-| `yarn format`      | Formats code using Prettier                     |
+| Command            | Description                                       |
+| ------------------ | ------------------------------------------------- |
+| `yarn dev`         | Starts all apps in development mode               |
+| `yarn build`       | Builds all apps and packages                      |
+| `yarn lint`        | Runs ESLint across all workspaces                 |
+| `yarn format`      | Formats code using Prettier                       |
 | `yarn check-types` | Runs TypeScript type checking across the monorepo |
 
 ---
