@@ -27,6 +27,7 @@
 
 @theme {
   --color-primary: #13ecec;
+  --color-primary-dark: #0d9488;
   --color-background-light: #f7f7f7;
   --color-background-dark: #f7f7f7;
   --color-sage: #4c9a9a;
@@ -35,4 +36,3 @@
   
   --font-display: Inter, sans-serif;
 }
-
