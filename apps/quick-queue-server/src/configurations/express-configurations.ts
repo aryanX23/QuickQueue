@@ -1,4 +1,5 @@
 import express from 'express';
+
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -17,6 +18,7 @@ const setupExpress = () => {
       },
     }
   );
+  app.set("trust proxy", true)
   app.use(morganMiddleware);
 
   app.use(express.json({ limit: '10mb', type: ['application/json', 'text/plain'] }));
