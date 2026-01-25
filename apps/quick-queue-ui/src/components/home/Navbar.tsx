@@ -1,4 +1,5 @@
 import { Logo } from '@/components/home/Logo';
+import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
@@ -35,9 +36,9 @@ export const Navbar = () => {
               </a>
             </div>
             <div className="flex gap-2">
-              <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-text-main text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105">
+              <Link to="/doctor/login" className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-text-main text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105">
                 <span className="truncate">Doctor Login</span>
-              </button>
+              </Link>
               <button className="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-transparent border border-gray-300 dark:border-gray-600 text-text-main dark:text-black hover:text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                 <span className="truncate">Patient Login</span>
               </button>

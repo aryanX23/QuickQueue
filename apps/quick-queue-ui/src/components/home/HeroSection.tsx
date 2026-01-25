@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const HeroSection = () => {
   return (
     <section className="flex flex-1 justify-center py-5">
@@ -16,9 +18,9 @@ export const HeroSection = () => {
                 </h2>
               </div>
               <div className="flex flex-wrap gap-3">
-                <button className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-text-main text-base font-bold transition-transform hover:-translate-y-0.5 shadow-lg shadow-primary/20">
+                <Link to="/doctor/signup" className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-primary text-text-main text-base font-bold transition-transform hover:-translate-y-0.5 shadow-lg shadow-primary/20">
                   <span className="truncate">Manage Practice</span>
-                </button>
+                </Link>
                 <button className="flex min-w-[140px] cursor-pointer items-center justify-center rounded-lg h-12 px-6 bg-white border border-gray-200 text-text-main text-base font-bold hover:bg-gray-50 transition-colors">
                   <span className="truncate">Book Appointment</span>
                 </button>
