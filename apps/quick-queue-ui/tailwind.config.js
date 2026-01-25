@@ -8,6 +8,8 @@ export default {
         primary: '#13ecec',
         'background-light': '#f6f8f8',
         'background-dark': '#102222',
+        sage: '#4c9a9a',
+        forest: '#0d3333',
         'text-main': '#0d1b1b',
       },
       fontFamily: {

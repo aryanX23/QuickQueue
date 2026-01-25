@@ -21,10 +21,16 @@
   }
 }
 
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
 @theme {
   --color-primary: #13ecec;
   --color-background-light: #f7f7f7;
   --color-background-dark: #f7f7f7;
+  --color-sage: #4c9a9a;
+  --color-forest: #0d3333;
   --color-text-main: #0d1b1b;
   
   --font-display: Inter, sans-serif;
