@@ -1,4 +1,26 @@
+import { useState } from 'react';
+import { VerifyIdentityModal } from '@/components/common/modals/VerifyIdentityModal';
+
 export const SettingsView = () => {
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [pendingAction, setPendingAction] = useState<
+    'updateProfile' | 'changePassword' | 'deleteAccount' | null
+  >(null);
+
+  const handleAction = (
+    action: 'updateProfile' | 'changePassword' | 'deleteAccount'
+  ) => {
+    setPendingAction(action);
+    setShowVerifyModal(true);
+  };
+
+  const handleVerify = () => {
+    // In a real app, verify OTP then perform action
+    setShowVerifyModal(false);
+    setPendingAction(null);
+    alert('Verification successful! Action completed.');
+  };
+
   return (
     <div className="max-w-4xl mx-auto p-8 w-full pb-20 lg:pb-0">
       <div className="mb-8">
@@ -66,7 +88,10 @@ export const SettingsView = () => {
               </div>
             </div>
             <div className="flex justify-end pt-4">
-              <button className="px-6 py-2.5 bg-primary text-slate-900 font-bold rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.01] transition-all">
+              <button
+                onClick={() => handleAction('updateProfile')}
+                className="px-6 py-2.5 bg-primary text-slate-900 font-bold rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.01] transition-all"
+              >
                 Update Profile
               </button>
             </div>
@@ -113,7 +138,10 @@ export const SettingsView = () => {
               />
             </div>
             <div className="pt-2">
-              <button className="px-6 py-2.5 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-all">
+              <button
+                onClick={() => handleAction('changePassword')}
+                className="px-6 py-2.5 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-all"
+              >
                 Change Password
               </button>
             </div>
@@ -130,7 +158,10 @@ export const SettingsView = () => {
                 action cannot be undone.
               </p>
             </div>
-            <button className="px-6 py-2.5 bg-red-600 text-white font-bold rounded-lg shadow-lg shadow-red-200 hover:bg-red-700 hover:scale-[1.01] transition-all whitespace-nowrap">
+            <button
+              onClick={() => handleAction('deleteAccount')}
+              className="px-6 py-2.5 bg-red-600 text-white font-bold rounded-lg shadow-lg shadow-red-200 hover:bg-red-700 hover:scale-[1.01] transition-all whitespace-nowrap"
+            >
               Delete Account
             </button>
           </div>
@@ -139,6 +170,15 @@ export const SettingsView = () => {
       <footer className="mt-12 py-6 text-center text-xs text-slate-400">
         © 2024 QuickQueue Medical Solutions. All rights reserved.
       </footer>
+
+      {showVerifyModal && (
+        <VerifyIdentityModal
+          isOpen={showVerifyModal}
+          onClose={() => setShowVerifyModal(false)}
+          onVerify={handleVerify}
+          email="jane@example.com"
+        />
+      )}
     </div>
   );
 };

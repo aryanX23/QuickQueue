@@ -1,4 +1,24 @@
+import { useState } from 'react';
+import { VerifyIdentityModal } from '@/components/common/modals/VerifyIdentityModal';
+
 export const SettingsView = () => {
+  const [showVerifyModal, setShowVerifyModal] = useState(false);
+  const [pendingAction, setPendingAction] = useState<
+    'saveChanges' | 'changePassword' | null
+  >(null);
+
+  const handleAction = (action: 'saveChanges' | 'changePassword') => {
+    setPendingAction(action);
+    setShowVerifyModal(true);
+  };
+
+  const handleVerify = () => {
+    // In a real app, verify OTP then perform action
+    setShowVerifyModal(false);
+    setPendingAction(null);
+    alert('Verification successful! Changes saved.');
+  };
+
   return (
     <div className="max-w-4xl mx-auto flex flex-col gap-8 pb-10">
       <div className="flex flex-col gap-2 border-b border-teal-100 pb-6">
@@ -11,16 +31,17 @@ export const SettingsView = () => {
       </div>
       <form
         className="flex flex-col gap-8"
-        onSubmit={(e) => e.preventDefault()}
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleAction('saveChanges');
+        }}
       >
         <div className="bg-white rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden">
           <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3 bg-teal-50/30">
             <span className="material-symbols-outlined text-primary">
               local_hospital
             </span>
-            <h3 className="text-lg font-bold text-slate-900">
-              Clinic Profile
-            </h3>
+            <h3 className="text-lg font-bold text-slate-900">Clinic Profile</h3>
           </div>
           <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="col-span-1 md:col-span-2">
@@ -174,9 +195,7 @@ export const SettingsView = () => {
             </div>
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-semibold text-slate-800">
-                  System Updates
-                </p>
+                <p className="font-semibold text-slate-800">System Updates</p>
                 <p className="text-sm text-slate-500">
                   Notifications about software maintenance and new features.
                 </p>
@@ -207,6 +226,15 @@ export const SettingsView = () => {
           </button>
         </div>
       </form>
+
+      {showVerifyModal && (
+        <VerifyIdentityModal
+          isOpen={showVerifyModal}
+          onClose={() => setShowVerifyModal(false)}
+          onVerify={handleVerify}
+          email="doctor@carterclinic.com"
+        />
+      )}
     </div>
   );
 };
