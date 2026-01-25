@@ -12,17 +12,17 @@ export const PatientLogin = () => {
   return (
     <div className="bg-white min-h-screen font-display flex">
       <div className="w-full lg:w-1/2 flex flex-col h-screen overflow-y-auto bg-white z-10">
-        <header className="flex items-center justify-between p-6 sm:p-8">
-          <div className="flex items-center gap-3">
-            <div className="size-8 flex items-center justify-center bg-primary/10 rounded-lg text-teal-700">
-              <span className="material-symbols-outlined text-xl text-primary-dark">
-                medical_services
-              </span>
-            </div>
-            <span className="text-lg font-bold text-slate-900">
-              QuickQueue
+      <header className="flex items-center justify-between p-6 sm:p-8">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="size-8 flex items-center justify-center bg-primary/10 rounded-lg text-teal-700">
+            <span className="material-symbols-outlined text-xl text-primary-dark">
+              medical_services
             </span>
           </div>
+          <span className="text-lg font-bold text-slate-900">
+            QuickQueue
+          </span>
+        </Link>
           <a
             className="text-sm font-medium text-slate-500 hover:text-primary-dark transition-colors"
             href="#"

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Logo } from '@/components/home/Logo';
 
 export const Footer = () => {
@@ -5,12 +6,12 @@ export const Footer = () => {
     <footer className="bg-background-light border-t border-[#e7f3f3] py-12 px-4 sm:px-10">
       <div className="layout-container flex flex-col max-w-[1280px] mx-auto gap-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="size-6 text-primary">
               <Logo />
             </div>
             <span className="text-lg font-bold text-text-main">QuickQueue</span>
-          </div>
+          </Link>
           <div className="flex gap-8 text-sm font-medium text-gray-500">
             <a className="hover:text-primary transition-colors" href="#">
               Privacy Policy

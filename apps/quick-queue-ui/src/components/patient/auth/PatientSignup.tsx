@@ -5,7 +5,7 @@ export const PatientSignup = () => {
     <div className="bg-white min-h-screen font-display flex">
       <div className="w-full lg:w-1/2 flex flex-col h-screen overflow-y-auto bg-white z-10">
         <header className="flex items-center justify-between p-6 sm:p-8">
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <div className="size-8 flex items-center justify-center bg-primary rounded-lg text-slate-900">
               <span className="material-symbols-outlined text-xl">
                 monitor_heart
@@ -14,7 +14,7 @@ export const PatientSignup = () => {
             <span className="text-lg font-bold text-slate-900">
               QuickQueue
             </span>
-          </div>
+          </Link>
           <Link
             className="text-sm font-medium text-slate-600 hover:text-primary transition-colors"
             to="/"

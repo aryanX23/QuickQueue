@@ -12,7 +12,7 @@ export const Login = () => {
   return (
     <div className="bg-background-light min-h-screen flex flex-col font-display">
       <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-3 bg-white">
-        <div className="flex items-center gap-4 text-slate-900">
+        <Link to="/" className="flex items-center gap-4 text-slate-900">
           <div className="size-8 flex items-center justify-center bg-primary rounded-lg text-slate-900">
             <span className="material-symbols-outlined text-xl">
               medical_services
@@ -21,7 +21,7 @@ export const Login = () => {
           <h2 className="text-lg font-bold leading-tight tracking-[-0.015em]">
             QuickQueue
           </h2>
-        </div>
+        </Link>
         <div className="flex items-center gap-4">
           <span className="text-sm text-slate-600 hidden sm:block">
             Don't have an account?
