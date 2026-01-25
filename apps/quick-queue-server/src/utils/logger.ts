@@ -36,7 +36,7 @@ const transports = [
 ];
 
 const logger = winston.createLogger({
-  level: process.env.NODE_ENV === 'development' ? 'debug' : 'warn',
+  level: process.env.NODE_ENV === 'production' ? 'warn' : 'debug',
   levels,
   format,
   transports,
