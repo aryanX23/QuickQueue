@@ -5,6 +5,7 @@ import { Login } from '@/components/auth/Login';
 import { Dashboard } from '@/components/dashboard/Dashboard';
 import { PatientLogin } from '@/components/patient/auth/PatientLogin';
 import { PatientSignup } from '@/components/patient/auth/PatientSignup';
+import { PatientDashboard } from '@/components/patient/dashboard/PatientDashboard';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/doctor/dashboard" element={<Dashboard />} />
         <Route path="/patient/login" element={<PatientLogin />} />
         <Route path="/patient/signup" element={<PatientSignup />} />
+        <Route path="/patient/dashboard" element={<PatientDashboard />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

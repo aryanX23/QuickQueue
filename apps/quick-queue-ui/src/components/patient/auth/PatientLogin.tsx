@@ -1,6 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const PatientLogin = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, perform authentication here
+    navigate('/patient/dashboard');
+  };
+
   return (
     <div className="bg-white min-h-screen font-display flex">
       <div className="w-full lg:w-1/2 flex flex-col h-screen overflow-y-auto bg-white z-10">
@@ -63,7 +71,7 @@ export const PatientLogin = () => {
                 </span>
               </div>
             </div>
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleLogin}>
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-slate-700">
                   Email Address
@@ -101,8 +109,8 @@ export const PatientLogin = () => {
                     type="password"
                   />
                   <button
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                     type="button"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
                   >
                     <span className="material-symbols-outlined text-[20px]">
                       visibility
