@@ -1,4 +1,17 @@
+import { useState, useEffect } from 'react';
+import { InvalidQRModal } from './modals/InvalidQRModal';
+
 export const ScanQRView = () => {
+  const [showInvalidModal, setShowInvalidModal] = useState(false);
+
+  // Simulate scan failure after 5 seconds for demo
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInvalidModal(true);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="flex-1 flex flex-col items-center justify-center p-8 w-full h-full">
       <div className="max-w-2xl w-full flex flex-col items-center">
@@ -53,6 +66,15 @@ export const ScanQRView = () => {
       <footer className="p-6 text-center text-xs text-slate-400 shrink-0 mt-auto">
         © 2024 QuickQueue Medical Solutions • Secure HIPAA Compliant Check-in
       </footer>
+
+      <InvalidQRModal
+        isOpen={showInvalidModal}
+        onClose={() => setShowInvalidModal(false)}
+        onRetry={() => {
+          setShowInvalidModal(false);
+          // In a real app, restart scanning here
+        }}
+      />
     </div>
   );
 };
