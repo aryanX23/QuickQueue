@@ -17,8 +17,11 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/configurations/*": ["./src/configurations/*"],
-      "@/generated/*": ["./src/generated/*"],
-    },
+      "@/generated/*": ["./src/generated/*"]
+    }
+  },
+  "tsc-alias": {
+    "resolveFullPaths": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"],
