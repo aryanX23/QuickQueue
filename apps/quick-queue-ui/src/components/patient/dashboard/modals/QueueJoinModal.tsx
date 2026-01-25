@@ -1,3 +1,9 @@
+import { useState } from 'react';
+import { InLineScreen } from '../../queue/InLineScreen';
+import { YourTurnScreen } from '../../queue/YourTurnScreen';
+import { VisitCompletedScreen } from '../../queue/VisitCompletedScreen';
+import { ClinicClosedScreen } from '../../queue/ClinicClosedScreen';
+
 export const QueueJoinModal = ({
   clinic,
   isOpen,
@@ -7,7 +13,58 @@ export const QueueJoinModal = ({
   isOpen: boolean;
   onClose: () => void;
 }) => {
+  const [queueState, setQueueState] = useState<
+    'confirm' | 'in-line' | 'your-turn' | 'completed' | 'closed'
+  >('confirm');
+
   if (!isOpen || !clinic) return null;
+
+  const handleJoinQueue = () => {
+    // Randomly decide if clinic closes for demo purposes (10% chance)
+    if (Math.random() > 0.9) {
+      setQueueState('closed');
+    } else {
+      setQueueState('in-line');
+    }
+  };
+
+  if (queueState === 'in-line') {
+    return (
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+        <InLineScreen
+          onNext={() => setQueueState('your-turn')}
+          onCancel={onClose}
+        />
+      </div>
+    );
+  }
+
+  if (queueState === 'your-turn') {
+    return (
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+        <YourTurnScreen
+          onNext={() => setQueueState('completed')}
+          onCancel={onClose}
+        />
+      </div>
+    );
+  }
+
+  if (queueState === 'completed') {
+    return (
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+        <VisitCompletedScreen onHome={onClose} />
+      </div>
+    );
+  }
+
+  if (queueState === 'closed') {
+    return (
+      <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm overflow-y-auto">
+        <ClinicClosedScreen onHome={onClose} />
+      </div>
+    );
+  }
 
   return (
     <div className="absolute inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
@@ -60,7 +117,7 @@ export const QueueJoinModal = ({
           </div>
         </div>
         <div className="p-6 pt-6">
-          <form action="#" className="space-y-5">
+          <form action="#" className="space-y-5" onSubmit={(e) => { e.preventDefault(); handleJoinQueue(); }}>
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 Patient Name
@@ -119,7 +176,7 @@ export const QueueJoinModal = ({
             <div className="pt-2">
               <button
                 className="w-full py-4 bg-sage hover:bg-[#3d8b8b] text-white font-bold rounded-xl shadow-lg shadow-sage/30 hover:shadow-sage/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
-                type="button"
+                type="submit"
               >
                 <span>Confirm & Join Queue</span>
                 <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
