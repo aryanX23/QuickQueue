@@ -1,6 +1,11 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default tseslint.config(
   {
@@ -13,6 +18,10 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: {
         ...globals.node,
+      },
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: __dirname,
       },
     },
     rules: {
