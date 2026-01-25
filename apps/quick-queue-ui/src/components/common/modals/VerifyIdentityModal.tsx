@@ -84,7 +84,9 @@ export const VerifyIdentityModal = ({
           {otp.map((digit, index) => (
             <input
               key={index}
-              ref={(el) => (inputRefs.current[index] = el)}
+              ref={(el) => {
+                inputRefs.current[index] = el;
+              }}
               className="w-12 h-14 sm:w-14 sm:h-16 border-2 border-slate-200 rounded-xl text-center text-2xl font-bold text-slate-900 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all placeholder-slate-300"
               maxLength={1}
               type="text"

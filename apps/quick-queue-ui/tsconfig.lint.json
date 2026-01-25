@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*",
+    "vite.config.ts",
+    "eslint.config.js",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ]
+}
+
