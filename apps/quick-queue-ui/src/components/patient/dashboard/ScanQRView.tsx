@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
 import { InvalidQRModal } from './modals/InvalidQRModal';
 
-export const ScanQRView = () => {
+export const ScanQRView = ({
+  onNavigateToFind,
+}: {
+  onNavigateToFind: () => void;
+}) => {
   const [showInvalidModal, setShowInvalidModal] = useState(false);
 
   // Simulate scan failure after 5 seconds for demo
@@ -73,6 +77,10 @@ export const ScanQRView = () => {
         onRetry={() => {
           setShowInvalidModal(false);
           // In a real app, restart scanning here
+        }}
+        onFindManually={() => {
+          setShowInvalidModal(false);
+          onNavigateToFind();
         }}
       />
     </div>

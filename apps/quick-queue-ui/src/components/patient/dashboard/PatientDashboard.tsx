@@ -185,7 +185,9 @@ export const PatientDashboard = () => {
         </header>
 
         {currentView === 'find' && <FindClinicView />}
-        {currentView === 'scan' && <ScanQRView />}
+        {currentView === 'scan' && (
+          <ScanQRView onNavigateToFind={() => setCurrentView('find')} />
+        )}
         {currentView === 'settings' && <SettingsView />}
       </main>
     </div>

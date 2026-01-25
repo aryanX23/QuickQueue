@@ -2,10 +2,12 @@ export const InvalidQRModal = ({
   isOpen,
   onClose,
   onRetry,
+  onFindManually,
 }: {
   isOpen: boolean;
   onClose: () => void;
   onRetry: () => void;
+  onFindManually: () => void;
 }) => {
   if (!isOpen) return null;
 
@@ -38,7 +40,7 @@ export const InvalidQRModal = ({
             Try Again
           </button>
           <button
-            onClick={onClose}
+            onClick={onFindManually}
             className="w-full h-12 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold rounded-xl transition-all flex items-center justify-center gap-2 group"
           >
             <span className="material-symbols-outlined group-hover:text-primary transition-colors">
