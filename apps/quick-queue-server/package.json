@@ -14,6 +14,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,js,json}\""
   },
   "dependencies": {
+    "@prisma/client": "^7.3.0",
     "@repo/types": "*",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
@@ -29,6 +30,7 @@
     "globals": "^16.5.0",
     "nodemon": "^3.1.11",
     "prettier": "^3.7.4",
+    "prisma": "^7.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4"
