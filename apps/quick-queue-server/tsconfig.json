@@ -17,7 +17,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@/configurations/*": ["./src/configurations/*"],
-      "@/generated/*": ["./src/generated/*"]
+      "@/generated/*": ["./src/generated/*"],
+      "@/prisma/*": ["./prisma/*"],
+      "@/utils/*": ["./src/utils/*"],
     }
   },
   "tsc-alias": {
