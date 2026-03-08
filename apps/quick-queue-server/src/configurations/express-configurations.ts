@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import logger from '@/utils/logger';
+import indexRoutes from '@/routes';
 
 const setupExpress = () => {
   const app = express();
@@ -38,6 +39,7 @@ const setupExpress = () => {
     logger.info('Health check endpoint hit');
     res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
   });
+  app.use('/api', indexRoutes);
 
   return app;
 };

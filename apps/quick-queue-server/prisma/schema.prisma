@@ -1,14 +1,94 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
-}
-
+// 1. Configuration
 datasource db {
   provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 2. Enums
+enum UserRole {
+  DOCTOR
+  PATIENT
+}
+
+enum QueueStatus {
+  WAITING
+  SERVING
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+// 3. The Core User Table (Optimized for Passport.js)
+model User {
+  id              String    @id @default(uuid())
+  name            String?
+  email           String?   @unique
+  phone           String?   @unique
+  passwordHash    String?   // Used by passport-local
+  
+  // Verification Flags
+  isEmailVerified Boolean   @default(false)
+  isPhoneVerified Boolean   @default(false)
+
+  // Social Logins (passport-google-oauth20)
+  googleId        String?   @unique // Store the Google profile ID here
+  avatarUrl       String?
+
+  role            UserRole
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Relationships
+  clinic          Clinic?       
+  queueEntries    QueueEntry[]  
+}
+
+// 4. OTP Management (Custom table since Passport doesn't do OTPs out of the box)
+model OtpCode {
+  id          String   @id @default(uuid())
+  identifier  String   // Email address or Phone number
+  code        String   // The 6-digit OTP
+  expiresAt   DateTime // e.g., now() + 10 minutes
+  createdAt   DateTime @default(now())
+
+  @@index([identifier])
+}
+
+// 5. The Clinic (Doctor's Shop)
+model Clinic {
+  id             String    @id @default(uuid())
+  name           String    
+  address        String
+  specialization String?  
+  
+  isOpen         Boolean   @default(false)
+  currentToken   Int       @default(0) 
+  
+  doctorId       String    @unique
+  doctor         User      @relation(fields: [doctorId], references: [id])
+  queue          QueueEntry[]
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+// 6. The Queue (Appointments)
+model QueueEntry {
+  id            String      @id @default(uuid())
+  tokenNumber   Int         
+  patientName   String      
+  symptoms      String?     
+  status        QueueStatus @default(WAITING)
+  
+  clinicId      String
+  clinic        Clinic      @relation(fields: [clinicId], references: [id])
+  
+  userId        String?     
+  user          User?       @relation(fields: [userId], references: [id])
+
+  createdAt     DateTime    @default(now())
 }
