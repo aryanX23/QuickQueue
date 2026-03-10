@@ -6,6 +6,7 @@ import morgan from 'morgan';
 
 import logger from '@/utils/logger';
 import indexRoutes from '@/routes';
+import errorHandlerUtility from '@/utils/errorHandlerUtility';
 
 const setupExpress = () => {
   const app = express();
@@ -19,7 +20,7 @@ const setupExpress = () => {
       },
     }
   );
-  app.set("trust proxy", true)
+  app.set("trust proxy", true);
   app.use(morganMiddleware);
 
   app.use(express.json({ limit: '10mb', type: ['application/json', 'text/plain'] }));
@@ -40,6 +41,9 @@ const setupExpress = () => {
     res.status(200).json({ status: 'OK', timestamp: new Date().toISOString() });
   });
   app.use('/api', indexRoutes);
+
+  // Error handler must be last
+  app.use(errorHandlerUtility.middleware());
 
   return app;
 };

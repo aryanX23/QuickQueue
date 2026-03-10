@@ -1,14 +1,14 @@
 import express from 'express';
 
+import DoctorAuthController from '@/controllers/doctorAuthController';
+
 const router = express.Router();
 
 router.get('auth/login', (req, res) => {
   res.send('Doctor login');
 });
 
-router.post('auth/signup', (req, res) => {
-  res.send('Doctor signup');
-});
+router.post('/auth/signup', (req, res, next) => DoctorAuthController.signupUsingEmailAndPassword(req, res, next));
 
 router.post('/auth/forgot-password', (req, res) => {
   res.send('Doctor forgot password');
